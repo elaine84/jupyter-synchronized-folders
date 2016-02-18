@@ -48,10 +48,10 @@ Pre-requisites:
     
 (WARNING: Vague flow only, will consult with an actual UX person before developing!)
 
-Screenshot 1: http://i.imgur.com/x18vqRm.png - Initiate creating a new Synchronized Folder
-Screenshot 2: http://i.imgur.com/hOdsLvW.png - Initial authentication request (happens first time, and then every time there's an authentication issue requiring re-authentication)
-Screenshot 3: http://i.imgur.com/RJVwPQB.png - Select which GitHub repository to sync. Should do an JS based check to see if it is something the user can push to / pull from or not, and provide appropriate information.
-Screenshot 4: http://i.imgur.com/6D1Brhl.png (When browsing Synchronized Folders show a little bit of extra information somewhere with metadata about what is going on - including info on when it was last updated, status, etc). Copy dropbox's design as much as possible.
+1. http://i.imgur.com/x18vqRm.png - Initiate creating a new Synchronized Folder
+2. http://i.imgur.com/hOdsLvW.png - Initial authentication request (happens first time, and then every time there's an authentication issue requiring re-authentication)
+3. http://i.imgur.com/RJVwPQB.png - Select which GitHub repository to sync. Should do an JS based check to see if it is something the user can push to / pull from or not, and provide appropriate information.
+4. http://i.imgur.com/6D1Brhl.png (When browsing Synchronized Folders show a little bit of extra information somewhere with metadata about what is going on - including info on when it was last updated, status, etc). Copy dropbox's design as much as possible.
 
 User should also be able to turn off / on synchronization and easily see which repositories are under synchronization. This can be implemented as an additional tab that has info on all synchronized folders.
 
@@ -61,12 +61,12 @@ The synchronization will only happen when a jupyter process is open and running.
 
 The backend python part will be structured into two parts:
     
-    1. A simple tornado coroutine that runs forever, doing the actual synchronization for all the repositories
-    2. A bunch of HTTP endpoints that the clientside JS uses to perform various actions, such as:
-    a. Creating a new Synchronized Repository
-    b. Validating and setting authentication information
-    c. Getting and setting metadata about each synchronized repository
-    d. Anything else, really :D
+1. A simple tornado coroutine that runs forever, doing the actual synchronization for all the repositories
+2. A bunch of HTTP endpoints that the clientside JS uses to perform various actions, such as:
+a. Creating a new Synchronized Repository
+b. Validating and setting authentication information
+c. Getting and setting metadata about each synchronized repository
+d. Anything else, really :D
 
 These two might need to share some state (such as locations of the repositories and authentication information), tbd what is the best way to do this. The state should persist across restarts, so somewhere on the FS seems appropriate. 
    
