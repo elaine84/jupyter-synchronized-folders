@@ -42,9 +42,7 @@ New personal access tokens can be created via https://github.com/settings/tokens
 
 ## UI ##
 
-The entry point would be under the 'New' button in the notebook UI - in addition to 'File', 'Folder' and 'Terminal', it would have 'Synchronized Folder' as an option, which sets off a simple UI that allows people to authenticate (if necessary), and setup the appropriate GitHub repository to sync. 
-
-Pre-requisites:
+The entry point would be under the 'New' button in the notebook UI - in addition to 'File', 'Folder' and 'Terminal', it would have 'Synchronized Folder' as an option, which sets off a simple UI that allows people to authenticate (if necessary), and setup the appropriate GitHub repository to sync.
     
 (WARNING: Vague flow only, will consult with an actual UX person before developing!)
 
