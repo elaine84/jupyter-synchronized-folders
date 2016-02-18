@@ -15,7 +15,7 @@ For the instructors' current workflow, see https://github.com/data-8/connector-i
 
 # Summary of Solution #
 
-Implement Dropbox-like synchronization of specific folders, accessible via the Jupyter Notebook interface. We will initially provide a GitHub backed implementation, but in the future other backends could be made available (e.g. Dropbox, generic git). We will explicitly avoid making a true Git GUI client - the user's mental model should be 'this is same as Dropbox', rather than 'this is same as git'
+Implement Dropbox-like synchronization of specific folders, accessible via the Jupyter Notebook interface. We will initially provide a GitHub backed implementation, but in the future other backends could be made available (e.g. Dropbox, generic git). We will explicitly avoid making a true Git GUI client - the user's mental model should be 'this is similar to Dropbox.'
 
 # Implementation details #
 
