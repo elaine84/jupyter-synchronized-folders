@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """
-Simple script that autocommits files being worked on to git. Test change with Github personal access token.
+Simple script that autocommits files being worked on to git.
+
+Test change with Github personal access token (testing swap file fix).
 """
 import subprocess
 import time
