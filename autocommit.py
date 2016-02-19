@@ -36,17 +36,17 @@ if __name__ == '__main__':
             run_git_command('add', '--all', '.')
             try:
                 run_git_command('commit', '--message', 'Autocommit')
-            except:
+            except Exception:
                 continue
 
         try:
             run_git_command('pull', '-r', '-s', 'recursive', '-Xours', 'origin', 'master')
-        except:
+        except Exception:
             continue
 
         if changed:
             try:
                 run_git_command('push', 'origin', 'master')
-            except:
+            except Exception:
                 continue
         time.sleep(float(args.time))
