@@ -8,7 +8,7 @@ import subprocess
 def run_git_command(*command):
     subprocess.check_output([
         '/usr/bin/git',
-    ] + command)
+    ] + list(command))
 
 
 if __name__ == '__main__':
