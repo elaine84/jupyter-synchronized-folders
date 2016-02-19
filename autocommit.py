@@ -17,4 +17,3 @@ if __name__ == '__main__':
     run_git_command('commit', '-m', 'Autocommit at %s' % datetime.now())
     run_git_command('pull', '-r', '-s', 'recursive', '-Xours', 'origin' 'master')
     run_git_command('push', 'origin', 'master')
-        git push origin master
