@@ -65,6 +65,8 @@ if __name__ == '__main__':
             except Exception:
                 continue
 
+            try:
+                
             if changed:
                 try:
                     run_git_command('push', 'origin', 'master')
