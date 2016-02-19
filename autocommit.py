@@ -40,7 +40,7 @@ if __name__ == '__main__':
                 continue
 
         remote_head = run_git_command('ls-remote', '--heads', 'origin', 'refs/heads/master')
-        print(remote_head)
+        print(remote_head.split()[0])
         try:
             run_git_command(
                 'pull',
