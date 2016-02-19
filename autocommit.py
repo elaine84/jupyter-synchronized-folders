@@ -25,7 +25,8 @@ if __name__ == '__main__':
     )
 
     while True:
-        if run_git_command('status', '-s'):
+        # git --short produces no output if there has been nothing to commit
+        if run_git_command('status', '--short'):
             changed = True
         else:
             changed = False
