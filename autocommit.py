@@ -12,4 +12,5 @@ def run_git_command(*command):
 
 
 if __name__ == '__main__':
-    run_git_command('status')
+    run_git_command('add', '.')
+    run_git_command('commit', '-m', 'Autocommit')
