@@ -39,6 +39,9 @@ if __name__ == '__main__':
             except Exception:
                 continue
 
+        remote_head = run_git_command('ls-remote', 'origin', 'refs/head/master')
+        remote_head_sha = remote_head.split()[-1]
+        print(remote_head_sha)
         try:
             run_git_command(
                 'pull',
