@@ -19,7 +19,7 @@ Implement Dropbox-like synchronization of specific folders, accessible via the J
 
 # Implementation details #
 
-This would be implemented as an jupyter notebook backend extension. We'd use a very small subset of git commands, tied specifically into GitHub, to provide this synchronizing functionality.
+This would be implemented as a Jupyter notebook backend extension. We'd use a very small subset of git commands, tied specifically into GitHub, to provide this synchronizing functionality.
 
 ## Synchronization ##
 
