@@ -40,7 +40,10 @@ if __name__ == '__main__':
                 continue
 
         try:
-            run_git_command('pull', '-r', '-s', 'recursive', '-Xours', 'origin', 'master')
+            run_git_command(
+                'pull',
+                '--rebase',
+                '-s', 'recursive', '-Xours', 'origin', 'master')
         except Exception:
             continue
 
