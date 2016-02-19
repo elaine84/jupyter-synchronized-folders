@@ -20,7 +20,7 @@ if __name__ == '__main__':
     argparser = argparse.ArgumentParser()
     argparser.add_argument('time', help='Number of seconds to wait between autocommits')
     args = argparser.parse_args()
-    
+
     while True:
         run_git_command('add', '.')
         try:
@@ -29,3 +29,4 @@ if __name__ == '__main__':
             pass
         run_git_command('pull', '-r', '-s', 'recursive', '-Xours', 'origin', 'master')
         run_git_command('push', 'origin', 'master')
+        time.sleep(args.time)
