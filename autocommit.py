@@ -40,21 +40,26 @@ if __name__ == '__main__':
                 continue
 
         remote_head = run_git_command('ls-remote', '--heads', 'origin', 'refs/heads/master')
-        print(remote_head.split()[0])
-        try:
-            run_git_command(
-                'pull',
-                '--rebase',
-                '--strategy', 'recursive',
-                '--strategy-option', 'ours',
-                'origin', 'master'
-            )
-        except Exception:
-            continue
+        remote_head_sha = remote_head.split()[0]
 
-        if changed:
+        local_head = run_git_command('show-ref', 'refs/heads/master')
+        local_head_sha = local_head.split()[0]
+
+        if remote_head_sha != local_head_sha:
             try:
-                run_git_command('push', 'origin', 'master')
+                run_git_command(
+                    'pull',
+                    '--rebase',
+                    '--strategy', 'recursive',
+                    '--strategy-option', 'ours',
+                    'origin', 'master'
+                )
             except Exception:
                 continue
+
+            if changed:
+                try:
+                    run_git_command('push', 'origin', 'master')
+                except Exception:
+                    continue
         time.sleep(float(args.time))
