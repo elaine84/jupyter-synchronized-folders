@@ -35,7 +35,7 @@ if __name__ == '__main__':
             # the --all also git rms the files that have been removed
             run_git_command('add', '--all', '.')
             try:
-                run_git_command('commit', '-m', 'Autocommit')
+                run_git_command('commit', '--message', 'Autocommit')
             except:
                 continue
 
