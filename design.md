@@ -1,6 +1,6 @@
 # Problem #
 
-Folder synchronization across multiple locations is a fundamental requirement for modern computational workflows. Even a single person using a notebook in multiple locations (a local machine and a JupyterHub, for example) needs to setup an external synchronization mechanism (git, commonly) to synchronize work across these locations easily. People who are not comfortable with git and other command-line-tools find this even more difficult, yet they are often familiar with other synchronization tools like Dropbox. We are particularly motivated by users of Jupyter notebooks who are not comfortable using git. That said, the problem of synchronizing notebooks overlaps with the problem of synchronizing folders, e.g., executing a notebook may depend on and create other files; synchronizing folders is a more general problem than synchronizing notebooks. We hypothesize that a compromise between git and Dropbox would help an important and growing class of users.
+Folder synchronization across multiple locations is a fundamental requirement for modern computational workflows. Even a single person using a notebook in multiple locations (a local machine and a JupyterHub, for example) needs to set up an external synchronization mechanism (git, commonly) to synchronize work across these locations easily. People who are not comfortable with git and other command-line-tools find this even more difficult, yet they are often familiar with other synchronization tools like Dropbox. We are particularly motivated by users of Jupyter notebooks who are not comfortable using git. That said, the problem of synchronizing notebooks overlaps with the problem of synchronizing folders: executing a notebook may depend on and create other files, and synchronizing folders is a more general problem than synchronizing notebooks. We hypothesize that a compromise between git and Dropbox would help an important and growing class of users.
 
 ## Motivating use case ##
 
@@ -9,7 +9,7 @@ Many of these instructors do not have traditional training in computer science o
 
 Jupyter notebooks are widely employed in classes at Cal because they provide a natural environment for introducing data science skills to students.  Critically, they enable a browser-based interface to computation in the cloud, meaning that students only need a browser to start programming and interacting with data.  
 
-As instructors at Cal develop a rich ensemble of data science classes, we want to include and support those who do not have much experience with computational tools.  We focus here on a particular problem that they quickly encounter, namely that of managing the notebooks, data, and other files they develop and distribute to students.
+As instructors at Cal develop a rich ensemble of data science classes, they need tools that will allow them to include and support those who do not have much experience with computational tools.  We focus here on a particular problem that they quickly encounter, namely that of managing the notebooks, data, and other files they develop and distribute to students.
 
 For the instructors' current workflow, see https://github.com/data-8/connector-instructors#workflow 
 
@@ -19,7 +19,7 @@ Implement Dropbox-like synchronization of specific folders, accessible via the J
 
 # Implementation details #
 
-This would be implemented as an jupyter notebook backend extension. We'd use a very sharp subset of git, tied specifically into GitHub, to provide this synchronizing functionality.
+This would be implemented as an jupyter notebook backend extension. We'd use a very small subset of git commands, tied specifically into GitHub, to provide this synchronizing functionality.
 
 ## Synchronization ##
 
@@ -99,3 +99,4 @@ The frontend JS will be fairly simple, just hooks on to the backend implementati
 
 @yuvipanda
 @elaine84
+@fhocutt
