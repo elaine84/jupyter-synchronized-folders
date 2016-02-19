@@ -67,7 +67,9 @@ if __name__ == '__main__':
 
             try:
                 run_git_command(
-                    ''
+                    'merge-base',
+                    '--is-ancestor',
+                    
                 )
             if changed:
                 try:
