@@ -21,6 +21,8 @@ if __name__ == '__main__':
     argparser.add_argument('time', help='Number of seconds to wait between autocommits')
     args = argparser.parse_args()
 
+    run_git_command('commit', '--allow-empty', '-m', 'Starting autocommit with period %s seconds' % args.time)
+
     while True:
         run_git_command('add', '.')
         try:
