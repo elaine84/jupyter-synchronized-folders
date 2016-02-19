@@ -6,13 +6,10 @@ import subprocess
 import time
 import argparse
 
-
-
 def run_git_command(*command):
     subprocess.check_call([
         '/usr/bin/git',
     ] + list(command))
-
 
 
 if __name__ == '__main__':
