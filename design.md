@@ -46,10 +46,17 @@ The entry point would be under the 'New' button in the notebook UI - in addition
     
 (WARNING: Vague flow only, will consult with an actual UX person before developing!)
 
-1. http://i.imgur.com/x18vqRm.png - Initiate creating a new Synchronized Folder
-2. http://i.imgur.com/hOdsLvW.png - Initial authentication request (happens first time, and then every time there's an authentication issue requiring re-authentication)
-3. http://i.imgur.com/RJVwPQB.png - Select which GitHub repository to sync. Should do an JS based check to see if it is something the user can push to / pull from or not, and provide appropriate information.
-4. http://i.imgur.com/6D1Brhl.png (When browsing Synchronized Folders show a little bit of extra information somewhere with metadata about what is going on - including info on when it was last updated, status, etc). Copy dropbox's design as much as possible.
+![Initiate creating a new Synchronized Folder](http://i.imgur.com/x18vqRm.png)
+*Initiate creating a new Synchronized Folder*
+
+![Initial authentication request](http://i.imgur.com/hOdsLvW.png)
+*Initial authentication request (happens first time, and then every time there's an authentication issue requiring re-authentication)*
+
+![Select which GitHub repository to sync.](http://i.imgur.com/RJVwPQB.png)
+*Select which GitHub repository to sync. Should do an JS based check to see if it is something the user can push to / pull from or not, and provide appropriate information.*
+
+![show a little bit of extra information](http://i.imgur.com/6D1Brhl.png)
+*(When browsing Synchronized Folders show a little bit of extra information somewhere with metadata about what is going on - including info on when it was last updated, status, etc). Copy dropbox's design as much as possible.*
 
 User should also be able to turn off / on synchronization and easily see which repositories are under synchronization. This can be implemented as an additional tab that has info on all synchronized folders.
 
