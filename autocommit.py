@@ -43,6 +43,7 @@ if __name__ == '__main__':
             except Exception:
                 continue
 
+        # Find the SHA of the remote master
         remote_head = run_git_command(
             'ls-remote',
             '--heads',
@@ -53,6 +54,8 @@ if __name__ == '__main__':
         local_head = run_git_command('show-ref', 'refs/heads/master')
         local_head_sha = local_head.split()[0]
 
+        # if the local and remote HEADs are same, do not do anything! Both
+        # the things are in sync!
         if remote_head_sha != local_head_sha:
             try:
                 run_git_command(
