@@ -39,7 +39,7 @@ if __name__ == '__main__':
             except Exception:
                 continue
 
-        remote_head = run_git_command('ls-remote', 'origin', 'refs/head/master')
+        remote_head = run_git_command('ls-remote', '--heads', 'origin', 'refs/head/master')
         print(remote_head)
         try:
             run_git_command(
