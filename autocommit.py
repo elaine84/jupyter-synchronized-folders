@@ -6,7 +6,7 @@ import subprocess
 
 
 def run_git_command(*command):
-    subprocess.check_output([
+    subprocess.check_call([
         '/usr/bin/git',
     ] + list(command))
 
