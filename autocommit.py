@@ -29,4 +29,4 @@ if __name__ == '__main__':
             pass
         run_git_command('pull', '-r', '-s', 'recursive', '-Xours', 'origin', 'master')
         run_git_command('push', 'origin', 'master')
-        time.sleep(args.time)
+        time.sleep(float(args.time))
