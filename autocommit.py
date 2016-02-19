@@ -64,7 +64,7 @@ if __name__ == '__main__':
                 needs_pull = False
             except subprocess.CalledProcessError:
                 needs_pull = True
-                
+
             if needs_pull:
                 try:
                     run_git_command(
@@ -76,8 +76,6 @@ if __name__ == '__main__':
                     )
                 except Exception:
                     continue
-
-
 
             if changed:
                 try:
