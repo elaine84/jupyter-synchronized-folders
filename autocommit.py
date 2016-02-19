@@ -3,7 +3,7 @@
 Simple script that autocommits files being worked on to git.
 """
 import subprocess
-import datetime
+from datetime import datetime
 
 
 def run_git_command(*command):
@@ -14,4 +14,4 @@ def run_git_command(*command):
 
 if __name__ == '__main__':
     run_git_command('add', '.')
-    run_git_command('commit', '-m', 'Autocommit')
+    run_git_command('commit', '-m', 'Autocommit at %s' % datetime.now())
