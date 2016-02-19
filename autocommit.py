@@ -23,7 +23,7 @@ if __name__ == '__main__':
     run_git_command('commit', '--allow-empty', '-m', 'Starting autocommit with period %s seconds' % args.time)
 
     while True:
-        run_git_command('add', '.')
+        run_git_command('add', '--all', '.')
         try:
             run_git_command('commit', '-m', 'Autocommit')
         except:
