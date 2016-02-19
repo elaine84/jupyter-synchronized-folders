@@ -56,17 +56,6 @@ if __name__ == '__main__':
         if remote_head_sha != local_head_sha:
             try:
                 run_git_command(
-                    'pull',
-                    '--rebase',
-                    '--strategy', 'recursive',
-                    '--strategy-option', 'ours',
-                    'origin', 'master'
-                )
-            except Exception:
-                continue
-
-            try:
-                run_git_command(
                     'merge-base',
                     '--is-ancestor',
                     local_head_sha,
@@ -75,6 +64,20 @@ if __name__ == '__main__':
                 needs_pull = False
             except subprocess.CalledProcessError:
                 needs_pull = True
+                
+            if needs_pull:
+                try:
+                    run_git_command(
+                        'pull',
+                        '--rebase',
+                        '--strategy', 'recursive',
+                        '--strategy-option', 'ours',
+                        'origin', 'master'
+                    )
+                except Exception:
+                    continue
+
+
 
             if changed:
                 try:
