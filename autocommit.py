@@ -50,7 +50,6 @@ if __name__ == '__main__':
         local_head_sha = local_head.split()[0]
 
         if remote_head_sha != local_head_sha:
-            if run_git_command('branch', ')
             try:
                 run_git_command(
                     'pull',
