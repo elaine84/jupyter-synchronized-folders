@@ -6,6 +6,7 @@ import subprocess
 import time
 import argparse
 
+
 def run_git_command(*command):
     return subprocess.check_output([
         '/usr/bin/git',
@@ -14,7 +15,10 @@ def run_git_command(*command):
 
 if __name__ == '__main__':
     argparser = argparse.ArgumentParser()
-    argparser.add_argument('time', help='Number of seconds to wait between autocommits')
+    argparser.add_argument(
+        'time',
+        help='Number of seconds to wait between autocommits'
+    )
     args = argparser.parse_args()
 
     run_git_command(
