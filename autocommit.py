@@ -5,7 +5,6 @@ Simple script that autocommits files being worked on to git.
 import subprocess
 import time
 import argparse
-from datetime import datetime
 
 
 
@@ -26,7 +25,7 @@ if __name__ == '__main__':
     while True:
         run_git_command('add', '.')
         try:
-            run_git_command('commit', '-m', 'Autocommit at %s' % datetime.now())
+            run_git_command('commit', '-m', 'Autocommit')
         except:
             pass
         try:
