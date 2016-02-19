@@ -37,9 +37,12 @@ if __name__ == '__main__':
             try:
                 run_git_command('commit', '-m', 'Autocommit')
             except:
-                pass
+                continue
 
-        run_git_command('pull', '-r', '-s', 'recursive', '-Xours', 'origin', 'master')
+        try:
+            run_git_command('pull', '-r', '-s', 'recursive', '-Xours', 'origin', 'master')
+        except:
+            continue
 
         if changed:
             try:
