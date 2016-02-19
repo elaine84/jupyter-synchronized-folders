@@ -43,7 +43,10 @@ if __name__ == '__main__':
             run_git_command(
                 'pull',
                 '--rebase',
-                '-s', 'recursive', '-Xours', 'origin', 'master')
+                '--strategy', 'recursive',
+                '-Xours',
+                'origin', 'master'
+            )
         except Exception:
             continue
 
