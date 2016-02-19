@@ -44,7 +44,7 @@ if __name__ == '__main__':
                 'pull',
                 '--rebase',
                 '--strategy', 'recursive',
-                '--strategy-option', ''
+                '--strategy-option', 'ours',
                 'origin', 'master'
             )
         except Exception:
