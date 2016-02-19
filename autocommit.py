@@ -66,7 +66,9 @@ if __name__ == '__main__':
                 continue
 
             try:
-                
+                run_git_command(
+                    ''
+                )
             if changed:
                 try:
                     run_git_command('push', 'origin', 'master')
