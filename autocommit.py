@@ -54,8 +54,6 @@ if __name__ == '__main__':
         local_head_sha = local_head.split()[0]
 
         if remote_head_sha != local_head_sha:
-            print(remote_head_sha)
-            print(local_head_sha)
             try:
                 run_git_command(
                     'merge-base',
