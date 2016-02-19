@@ -72,9 +72,10 @@ if __name__ == '__main__':
                     local_head_sha,
                     remote_head_sha
                 )
-                needs_push = True
+                needs_pull = False
             except subprocess.CalledProcessError:
-                needs_push = False
+                needs_pull = True
+
             if changed:
                 try:
                     run_git_command('push', 'origin', 'master')
