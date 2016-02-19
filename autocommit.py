@@ -28,9 +28,11 @@ if __name__ == '__main__':
             run_git_command('commit', '-m', 'Autocommit')
         except:
             pass
+
+        run_git_command('pull', '-r', '-s', 'recursive', '-Xours', 'origin', 'master')
+
         try:
-            run_git_command('pull', '-r', '-s', 'recursive', '-Xours', 'origin', 'master')
+            run_git_command('push', 'origin', 'master')
         except:
             continue
-        run_git_command('push', 'origin', 'master')
         time.sleep(float(args.time))
