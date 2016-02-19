@@ -9,7 +9,7 @@ Many of these instructors do not have traditional training in computer science o
 
 Jupyter notebooks are widely employed in classes at Cal because they provide a natural environment for introducing data science skills to students.  Critically, they enable a browser-based interface to computation in the cloud, meaning that students only need a browser to start programming and interacting with data.  
 
-As instructors at Cal develop a rich ensemble of data science classes, they need tools that will allow them to include and support those who do not have much experience with computational tools.  We focus here on a particular problem that they quickly encounter, namely that of managing the notebooks, data, and other files they develop and distribute to students.
+However, the tools currently available for instructors require considerably more experience with computational and programming tools. In order to include and support this multidisciplinary group of instructors who are developing a rich ensemble of classes, particularly from disciplines currently underrepresented in data science, the tools available must be designed to facilitate the work of instructors whose research and educational backgrounds do not include, for instance, tools for version control. We focus here on a particular problem that they encounter early in developing and teaching the courses: managing the notebooks, data, and other files they develop and distribute to students.
 
 For the instructors' current workflow, see https://github.com/data-8/connector-instructors#workflow 
 
