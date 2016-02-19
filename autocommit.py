@@ -4,6 +4,7 @@ Simple script that autocommits files being worked on to git.
 """
 import subprocess
 import time
+import argparse
 from datetime import datetime
 
 
@@ -16,6 +17,10 @@ def run_git_command(*command):
 
 
 if __name__ == '__main__':
+    argparser = argparse.ArgumentParser()
+    argparser.add_argument('time', help='Number of seconds to wait between autocommits')
+    args = argparser.parse_args()
+    
     while True:
         run_git_command('add', '.')
         try:
