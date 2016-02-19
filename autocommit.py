@@ -69,8 +69,12 @@ if __name__ == '__main__':
                 run_git_command(
                     'merge-base',
                     '--is-ancestor',
-                    
+                    local_head_sha,
+                    remote_head_sha
                 )
+                needs_push = True
+            except subprocess.CalledProcessError:
+                needs_push = False
             if changed:
                 try:
                     run_git_command('push', 'origin', 'master')
