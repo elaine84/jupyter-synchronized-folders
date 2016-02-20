@@ -13,6 +13,14 @@ def run_git_command(*command):
     ] + list(command))
 
 
+def get_remote_branch_sha(remote, branch):
+    remote_head = run_git_command(
+        'ls-remote',
+        '--heads',
+        remote, 'refs/heads/{head}'.format(head=branch)
+    )
+    remote_head_sha = remote_head.split()[0]
+
 if __name__ == '__main__':
     argparser = argparse.ArgumentParser()
     argparser.add_argument(
@@ -44,12 +52,7 @@ if __name__ == '__main__':
                 continue
 
         # Find the SHA of the remote master
-        remote_head = run_git_command(
-            'ls-remote',
-            '--heads',
-            'origin', 'refs/heads/master'
-        )
-        remote_head_sha = remote_head.split()[0]
+        remote_head_sha = get_remote_branch_sha('origin', 'master')
 
         local_head = run_git_command('show-ref', 'refs/heads/master')
         local_head_sha = local_head.split()[0]
