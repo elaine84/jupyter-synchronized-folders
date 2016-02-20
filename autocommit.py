@@ -19,7 +19,7 @@ def get_remote_branch_sha(remote, branch):
         '--heads',
         remote, 'refs/heads/{head}'.format(head=branch)
     )
-    remote_head_sha = remote_head.split()[0]
+    return remote_head.split()[0]
 
 if __name__ == '__main__':
     argparser = argparse.ArgumentParser()
