@@ -88,11 +88,13 @@ if __name__ == '__main__':
                         'show'
                     )
                 except Exception:
+                    logging.exception()
                     continue
 
             if changed:
                 try:
                     run_git_command('push', 'origin', 'master')
                 except Exception:
+                    logging.exception()
                     continue
         time.sleep(float(args.time))
