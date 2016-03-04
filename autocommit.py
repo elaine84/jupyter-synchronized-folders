@@ -48,6 +48,8 @@ if __name__ == '__main__':
         '-m',
         'Starting autocommit w/ period %s seconds' % args.time
     )
+    do_rebase_pull()
+    run_git_command('push', 'origin', 'master')
 
     while True:
         # git --short produces no output if there has been nothing to commit
