@@ -38,10 +38,11 @@ if __name__ == '__main__':
         '-m',
         'Starting autocommit w/ period %s seconds' % args.time
     )
+    changed = True
 
     while True:
         # git --short produces no output if there has been nothing to commit
-        if run_git_command('status', '--short'):
+        if changed or run_git_command('status', '--short'):
             changed = True
         else:
             changed = False
@@ -52,6 +53,7 @@ if __name__ == '__main__':
             try:
                 run_git_command('commit', '--message', 'Autocommit')
                 run_git_command('show')
+                changed = False
             except Exception:
                 logging.exception()
                 continue
