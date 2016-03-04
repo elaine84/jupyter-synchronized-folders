@@ -5,6 +5,7 @@ Simple script that autocommits files being worked on to git.
 import subprocess
 import time
 import argparse
+import logging
 
 
 def run_git_command(*command):
