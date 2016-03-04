@@ -9,7 +9,7 @@ import logging
 
 
 def run_git_command(*command):
-    logging.info(' '.join(command))
+    logging.info(' '.join([str(c) for c in command]))
     return subprocess.check_output([
         '/usr/bin/git',
     ] + list(command))
