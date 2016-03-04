@@ -31,6 +31,7 @@ if __name__ == '__main__':
     )
     args = argparser.parse_args()
 
+    logging.basicConfig(level=logging.INFO)
     run_git_command(
         'commit',
         '--allow-empty',
