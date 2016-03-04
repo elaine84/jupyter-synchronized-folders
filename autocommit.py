@@ -53,6 +53,7 @@ if __name__ == '__main__':
                 run_git_command('commit', '--message', 'Autocommit')
                 run_git_command('show')
             except Exception:
+                logging.exception()
                 continue
 
         # Find the SHA of the remote master
