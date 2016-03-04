@@ -36,7 +36,7 @@ if __name__ == '__main__':
         'commit',
         '--allow-empty',
         '-m',
-        'Starting autocommit with period %s seconds' % args.time
+        'Starting autocommit w/ period %s seconds' % args.time
     )
 
     while True:
