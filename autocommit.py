@@ -80,6 +80,9 @@ if __name__ == '__main__':
                         '--strategy-option', 'ours',
                         'origin', 'master'
                     )
+                    run_git_command(
+                        'show'
+                    )
                 except Exception:
                     continue
 
