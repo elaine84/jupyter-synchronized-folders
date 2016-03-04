@@ -64,7 +64,7 @@ if __name__ == '__main__':
                 run_git_command('show')
                 changed = False
             except Exception:
-                logging.exception()
+                logging.exception('error')
                 continue
 
         # Find the SHA of the remote master
@@ -94,13 +94,13 @@ if __name__ == '__main__':
                         'show'
                     )
                 except Exception:
-                    logging.exception()
+                    logging.exception('error')
                     continue
 
             if changed:
                 try:
                     run_git_command('push', 'origin', 'master')
                 except Exception:
-                    logging.exception()
+                    logging.exception('error')
                     continue
         time.sleep(float(args.time))
