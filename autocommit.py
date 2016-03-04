@@ -23,6 +23,16 @@ def get_remote_branch_sha(remote, branch):
     )
     return remote_head.split()[0]
 
+
+def do_rebase_pull(remote='origin', branch='master'):
+    run_git_command(
+        'pull',
+        '--rebase',
+        '--strategy', 'recursive',
+        '--strategy-option', 'ours',
+        remote, branch
+    )
+
 if __name__ == '__main__':
     argparser = argparse.ArgumentParser()
     argparser.add_argument(
@@ -38,11 +48,10 @@ if __name__ == '__main__':
         '-m',
         'Starting autocommit w/ period %s seconds' % args.time
     )
-    changed = True
 
     while True:
         # git --short produces no output if there has been nothing to commit
-        if changed or run_git_command('status', '--short'):
+        if run_git_command('status', '--short'):
             changed = True
         else:
             changed = False
@@ -80,13 +89,7 @@ if __name__ == '__main__':
 
             if needs_pull:
                 try:
-                    run_git_command(
-                        'pull',
-                        '--rebase',
-                        '--strategy', 'recursive',
-                        '--strategy-option', 'ours',
-                        'origin', 'master'
-                    )
+                    do_rebase_pull('origin', 'master')
                     run_git_command(
                         'show'
                     )
