@@ -55,6 +55,9 @@ if __name__ == '__main__':
         level=logging.INFO,
         format='%(asctime)s %(message)s'
     )
+    sync()
+    time.sleep(float(args.time))
+
 
 def sync():
     run_git_command(
@@ -116,4 +119,3 @@ def sync():
                 except Exception:
                     logging.exception('error')
                     continue
-        time.sleep(float(args.time))
