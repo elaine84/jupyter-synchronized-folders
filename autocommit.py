@@ -55,11 +55,7 @@ if __name__ == '__main__':
         level=logging.INFO,
         format='%(asctime)s %(message)s'
     )
-    sync()
-    time.sleep(float(args.time))
-
-
-def sync():
+    
     run_git_command(
         'commit',
         '--allow-empty',
@@ -68,6 +64,12 @@ def sync():
     )
     do_rebase_pull()
     run_git_command('push', 'origin', 'master')
+
+    sync()
+    time.sleep(float(args.time))
+
+
+def sync():
 
     while True:
         # git --short produces no output if there has been nothing to commit
