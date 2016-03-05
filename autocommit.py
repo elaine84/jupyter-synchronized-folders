@@ -25,7 +25,7 @@ def call_subprocess(cmd, stdin=None):
     )
 
     if stdin:
-        yield Task(sub_process.stdin.write, stdin_data)
+        yield Task(sub_process.stdin.write, stdin)
 
     if stdin_async or stdin_data:
         sub_process.stdin.close()
