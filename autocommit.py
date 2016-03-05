@@ -7,6 +7,7 @@ import time
 import argparse
 import logging
 import tornado
+from tornado.gen import Task, Return, coroutine
 
 
 def run_git_command(*command):
