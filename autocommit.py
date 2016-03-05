@@ -12,11 +12,11 @@ import tornado.process
 
 
 @coroutine
-def call_subprocess(cmd, stdin_data=None, stdin_async=False):
+def call_subprocess(cmd, stdin=None):
     """
     Wrapper around subprocess call using Tornado's Subprocess class.
     """
-    stdin = STREAM if stdin_async else subprocess.PIPE
+    stdin = STREAM
 
     sub_process = tornado.process.Subprocess(
         cmd, stdin=stdin, stdout=STREAM, stderr=STREAM
