@@ -33,6 +33,7 @@ def do_rebase_pull(remote='origin', branch='master'):
         remote, branch
     )
 
+
 if __name__ == '__main__':
     argparser = argparse.ArgumentParser()
     argparser.add_argument(
