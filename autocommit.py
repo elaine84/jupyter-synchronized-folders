@@ -16,7 +16,7 @@ def call_subprocess(cmd, stdin=None):
     """
     Wrapper around subprocess call using Tornado's Subprocess class.
     """
-    stdin =  tornado.process.Subprocess.STREAM
+    stdin = tornado.process.Subprocess.STREAM
 
     sub_process = tornado.process.Subprocess(
         cmd, stdin=stdin, stdout=STREAM, stderr=STREAM
