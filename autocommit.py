@@ -38,9 +38,10 @@ def call_subprocess(cmd, stdin=None):
     return (result, error)
 
 
+@coroutine
 def run_git_command(*command):
     logging.info(' '.join([str(c) for c in command]))
-    return call_subprocess([
+    yield call_subprocess([
         '/usr/bin/git',
     ] + list(command))
 
