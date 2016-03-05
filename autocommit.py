@@ -6,6 +6,7 @@ import subprocess
 import time
 import argparse
 import logging
+import os
 
 
 def run_git_command(*command):
