@@ -55,6 +55,9 @@ if __name__ == '__main__':
         level=logging.INFO,
         format='%(asctime)s %(message)s'
     )
+
+    script_mtime = 
+
     run_git_command(
         'commit',
         '--allow-empty',
