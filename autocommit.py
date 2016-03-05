@@ -84,35 +84,35 @@ def sync():
 
     if changed:
         # the --all also git rms the files that have been removed
-        run_git_command('add', '--all', '.')
+        yield run_git_command('add', '--all', '.')
         try:
-            run_git_command('commit', '--message', 'Autocommit')
-            run_git_command('show')
+            yield run_git_command('commit', '--message', 'Autocommit')
+            yield run_git_command('show')
         except Exception:
             logging.exception('error')
             return
 
     # Find the SHA of the remote master
-    remote_head_sha = get_remote_branch_sha('origin', 'master')
+    remote_head_sha = yield get_remote_branch_sha('origin', 'master')
 
     # if the local and remote HEADs are same, do not do anything! Both
     # the things are in sync!
     if remote_head_sha != get_local_sha('master'):
         try:
-            run_git_command(
+            yield run_git_command(
                 'merge-base',
                 '--is-ancestor',
                 get_local_sha('master'),
                 remote_head_sha
             )
             needs_pull = False
-        except subprocess.CalledProcessError:
+        except Exception:
             needs_pull = True
 
         if needs_pull:
             try:
-                do_rebase_pull('origin', 'master')
-                run_git_command(
+                yield do_rebase_pull('origin', 'master')
+                yield run_git_command(
                     'show'
                 )
             except Exception:
@@ -121,7 +121,7 @@ def sync():
 
         if remote_head_sha != get_local_sha('master'):
             try:
-                run_git_command('push', 'origin', 'master')
+                yield run_git_command('push', 'origin', 'master')
             except Exception:
                 logging.exception('error')
                 return
