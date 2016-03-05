@@ -35,7 +35,6 @@ def call_subprocess(cmd, stdin=None):
         Task(sub_process.stderr.read_until_close)
     ]
 
-    
     return result
 
 
