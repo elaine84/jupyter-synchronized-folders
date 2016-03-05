@@ -41,7 +41,9 @@ if __name__ == '__main__':
     )
     args = argparser.parse_args()
 
-    logging.basicConfig(level=logging.INFO)
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s %(message)')
     run_git_command(
         'commit',
         '--allow-empty',
