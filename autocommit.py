@@ -114,8 +114,6 @@ if __name__ == '__main__':
         '-m',
         'Starting autocommit with period %s seconds' % args.time
     )
-    do_rebase_pull()
-    run_git_command('push', 'origin', 'master')
 
     while True:
         sync()
