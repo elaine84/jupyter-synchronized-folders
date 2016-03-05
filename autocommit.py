@@ -67,7 +67,6 @@ if __name__ == '__main__':
             try:
                 run_git_command('commit', '--message', 'Autocommit')
                 run_git_command('show')
-                changed = False
             except Exception:
                 logging.exception('error')
                 continue
