@@ -58,7 +58,7 @@ def sync():
             run_git_command('show')
         except Exception:
             logging.exception('error')
-            continue
+            return
 
     # Find the SHA of the remote master
     remote_head_sha = get_remote_branch_sha('origin', 'master')
@@ -85,14 +85,14 @@ def sync():
                 )
             except Exception:
                 logging.exception('error')
-                continue
+                return
 
         if remote_head_sha != get_local_sha('master'):
             try:
                 run_git_command('push', 'origin', 'master')
             except Exception:
                 logging.exception('error')
-                continue
+                return
 
 
 if __name__ == '__main__':
