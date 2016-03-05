@@ -55,7 +55,7 @@ if __name__ == '__main__':
         level=logging.INFO,
         format='%(asctime)s %(message)s'
     )
-    
+
     run_git_command(
         'commit',
         '--allow-empty',
@@ -65,8 +65,9 @@ if __name__ == '__main__':
     do_rebase_pull()
     run_git_command('push', 'origin', 'master')
 
-    sync()
-    time.sleep(float(args.time))
+    while True:
+        sync()
+        time.sleep(float(args.time))
 
 
 def sync():
