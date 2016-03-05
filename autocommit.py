@@ -66,7 +66,7 @@ def do_rebase_pull(remote='origin', branch='master'):
 
 
 def get_local_sha(branch):
-    local_head = run_git_command(
+    local_head = yield run_git_command(
         'show-ref',
         'refs/heads/{branch}'.format(branch=branch)
     )
