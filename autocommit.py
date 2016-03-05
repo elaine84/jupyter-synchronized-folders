@@ -75,7 +75,7 @@ def get_local_sha(branch):
 
 def sync():
     # git --short produces no output if there has been nothing to commit
-    if run_git_command('status', '--short'):
+    if yield run_git_command('status', '--short'):
         changed = True
     else:
         changed = False
