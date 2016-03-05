@@ -7,7 +7,7 @@ import time
 import argparse
 import logging
 import tornado
-from tornado.gen import Task, Return, coroutine
+from tornado.gen import Task, coroutine
 import tornado.process
 
 
