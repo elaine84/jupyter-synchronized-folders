@@ -47,7 +47,7 @@ def run_git_command(*command):
 
 
 def get_remote_branch_sha(remote, branch):
-    remote_head = run_git_command(
+    remote_head = yield run_git_command(
         'ls-remote',
         '--heads',
         remote, 'refs/heads/{head}'.format(head=branch)
