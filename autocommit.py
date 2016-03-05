@@ -19,7 +19,9 @@ def call_subprocess(cmd, stdin=None):
     stdin = tornado.process.Subprocess.STREAM
 
     sub_process = tornado.process.Subprocess(
-        cmd, stdin=stdin, stdout=STREAM, stderr=STREAM
+        cmd, stdin=stdin,
+        stdout=tornado.process.Subprocess.STREAM,
+        stderr=tornado.process.Subprocess.STREAM
     )
 
     if stdin_data:
