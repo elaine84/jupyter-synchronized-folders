@@ -27,7 +27,7 @@ def call_subprocess(cmd, stdin=None):
     if stdin:
         yield Task(sub_process.stdin.write, stdin)
 
-    if stdin_async or stdin_data:
+    if stdin:
         sub_process.stdin.close()
 
     result, error = yield [
