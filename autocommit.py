@@ -46,7 +46,7 @@ if __name__ == '__main__':
         'commit',
         '--allow-empty',
         '-m',
-        'Starting autocommit w/ period %s seconds' % args.time
+        'Starting autocommit with period %s seconds' % args.time
     )
     do_rebase_pull()
     run_git_command('push', 'origin', 'master')
