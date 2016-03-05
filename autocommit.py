@@ -34,8 +34,10 @@ def do_rebase_pull(remote='origin', branch='master'):
     )
 
 def get_local_sha(branch):
-    pass
-    
+    local_head = run_git_command('show-ref', 'refs/heads/master')
+    return local_head.split()[0]
+
+
 if __name__ == '__main__':
     argparser = argparse.ArgumentParser()
     argparser.add_argument(
@@ -77,8 +79,7 @@ if __name__ == '__main__':
         # Find the SHA of the remote master
         remote_head_sha = get_remote_branch_sha('origin', 'master')
 
-        local_head = run_git_command('show-ref', 'refs/heads/master')
-        local_head_sha = local_head.split()[0]
+
 
         # if the local and remote HEADs are same, do not do anything! Both
         # the things are in sync!
