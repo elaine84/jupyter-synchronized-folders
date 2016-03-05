@@ -85,7 +85,7 @@ if __name__ == '__main__':
 
         # if the local and remote HEADs are same, do not do anything! Both
         # the things are in sync!
-        if remote_head_sha != get_local_sha():
+        if remote_head_sha != get_local_sha('master'):
             try:
                 run_git_command(
                     'merge-base',
@@ -107,7 +107,7 @@ if __name__ == '__main__':
                     logging.exception('error')
                     continue
 
-            if changed:
+            if remote_head_sha != get_local_sha('master'):
                 try:
                     run_git_command('push', 'origin', 'master')
                 except Exception:
