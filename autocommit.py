@@ -35,7 +35,8 @@ def call_subprocess(cmd, stdin=None):
         Task(sub_process.stderr.read_until_close)
     ]
 
-    raise Return((result, error))
+    return (result, error)
+
 
 def run_git_command(*command):
     logging.info(' '.join([str(c) for c in command]))
