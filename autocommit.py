@@ -8,6 +8,7 @@ import argparse
 import logging
 import tornado
 from tornado.gen import Task, Return, coroutine
+import tornado.process
 
 
 def run_git_command(*command):
