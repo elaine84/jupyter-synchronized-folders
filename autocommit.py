@@ -56,6 +56,7 @@ if __name__ == '__main__':
         format='%(asctime)s %(message)s'
     )
 
+def sync():
     run_git_command(
         'commit',
         '--allow-empty',
