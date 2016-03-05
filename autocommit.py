@@ -43,7 +43,7 @@ if __name__ == '__main__':
 
     logging.basicConfig(
         level=logging.INFO,
-        format='%(asctime)s %(message)')
+        format='%(asctime)s %(message)s')
     run_git_command(
         'commit',
         '--allow-empty',
