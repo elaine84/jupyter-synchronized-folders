@@ -147,7 +147,6 @@ if __name__ == '__main__':
         '-m',
         'Starting autocommit with period %s seconds' % args.time
     )
-
-    while True:
-        sync()
-        time.sleep(float(args.time))
+    ioloop = IOLoop.instance()
+    ioloop.add_callback(sync)
+    ioloop.start()
