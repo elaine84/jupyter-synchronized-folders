@@ -83,8 +83,6 @@ if __name__ == '__main__':
         # Find the SHA of the remote master
         remote_head_sha = get_remote_branch_sha('origin', 'master')
 
-
-
         # if the local and remote HEADs are same, do not do anything! Both
         # the things are in sync!
         if remote_head_sha != local_head_sha:
