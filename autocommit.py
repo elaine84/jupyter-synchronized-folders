@@ -56,7 +56,7 @@ def get_remote_branch_sha(remote, branch):
 
 
 def do_rebase_pull(remote='origin', branch='master'):
-    run_git_command(
+    yield run_git_command(
         'pull',
         '--rebase',
         '--strategy', 'recursive',
