@@ -24,11 +24,8 @@ def call_subprocess(cmd, stdin=None):
         stderr=tornado.process.Subprocess.STREAM
     )
 
-    if stdin_data:
-        if stdin_async:
-            yield Task(sub_process.stdin.write, stdin_data)
-        else:
-            sub_process.stdin.write(stdin_data)
+    if stdin:
+        yield Task(sub_process.stdin.write, stdin_data)
 
     if stdin_async or stdin_data:
         sub_process.stdin.close()
