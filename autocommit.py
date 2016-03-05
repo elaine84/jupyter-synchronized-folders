@@ -75,6 +75,7 @@ def get_local_sha(branch):
     return local_head.split()[0]
 
 
+@coroutine
 def sync():
     # git --short produces no output if there has been nothing to commit
     if yield run_git_command('status', '--short'):
