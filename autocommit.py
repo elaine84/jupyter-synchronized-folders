@@ -2,12 +2,12 @@
 """
 Simple script that autocommits files being worked on to git.
 """
-import subprocess
+import ipdb
 import time
 import argparse
 import logging
 import tornado
-from tornado.gen import Task, coroutine
+from tornado.gen import Task, coroutine, Return
 import tornado.process
 
 
@@ -19,44 +19,41 @@ def call_subprocess(cmd, stdin=None):
     stdin = tornado.process.Subprocess.STREAM
 
     sub_process = tornado.process.Subprocess(
-        cmd, stdin=stdin,
+        cmd,
         stdout=tornado.process.Subprocess.STREAM,
         stderr=tornado.process.Subprocess.STREAM
     )
 
-    if stdin:
-        yield Task(sub_process.stdin.write, stdin)
+#    if stdin:
+#        yield Task(sub_process.stdin.write, stdin)
 
-    if stdin:
-        sub_process.stdin.close()
+#    if stdin:
+#        sub_process.stdin.close()
 
-    result, error = yield [
-        Task(sub_process.stdout.read_until_close),
-        Task(sub_process.stderr.read_until_close)
-    ]
+    error = Task(sub_process.stderr.read_until_close)
 
-    if error:
-        raise Exception(error)
-    return result
+    yield sub_process.stdout.read_until_close()
 
 
 @coroutine
 def run_git_command(*command):
     logging.info(' '.join([str(c) for c in command]))
-    yield call_subprocess([
+    return call_subprocess([
         '/usr/bin/git',
     ] + list(command))
 
-
+@coroutine
 def get_remote_branch_sha(remote, branch):
     remote_head = yield run_git_command(
         'ls-remote',
         '--heads',
         remote, 'refs/heads/{head}'.format(head=branch)
     )
-    return remote_head.split()[0]
+    ipdb.set_trace()
+    raise Return(remote_head.split()[0])
 
 
+@coroutine
 def do_rebase_pull(remote='origin', branch='master'):
     yield run_git_command(
         'pull',
@@ -67,18 +64,19 @@ def do_rebase_pull(remote='origin', branch='master'):
     )
 
 
+@coroutine
 def get_local_sha(branch):
     local_head = yield run_git_command(
         'show-ref',
         'refs/heads/{branch}'.format(branch=branch)
     )
-    return local_head.split()[0]
+    raise Return(local_head.split()[0])
 
 
 @coroutine
 def sync():
     # git --short produces no output if there has been nothing to commit
-    if yield run_git_command('status', '--short'):
+    if (yield run_git_command('status', '--short')):
         changed = True
     else:
         changed = False
@@ -147,6 +145,6 @@ if __name__ == '__main__':
         '-m',
         'Starting autocommit with period %s seconds' % args.time
     )
-    ioloop = IOLoop.instance()
+    ioloop = tornado.ioloop.IOLoop.instance()
     ioloop.add_callback(sync)
     ioloop.start()
