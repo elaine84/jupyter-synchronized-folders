@@ -43,33 +43,6 @@ def get_local_sha(branch):
     return local_head.split()[0]
 
 
-if __name__ == '__main__':
-    argparser = argparse.ArgumentParser()
-    argparser.add_argument(
-        'time',
-        help='Number of seconds to wait between autocommits'
-    )
-    args = argparser.parse_args()
-
-    logging.basicConfig(
-        level=logging.INFO,
-        format='%(asctime)s %(message)s'
-    )
-
-    run_git_command(
-        'commit',
-        '--allow-empty',
-        '-m',
-        'Starting autocommit with period %s seconds' % args.time
-    )
-    do_rebase_pull()
-    run_git_command('push', 'origin', 'master')
-
-    while True:
-        sync()
-        time.sleep(float(args.time))
-
-
 def sync():
     # git --short produces no output if there has been nothing to commit
     if run_git_command('status', '--short'):
@@ -120,3 +93,30 @@ def sync():
             except Exception:
                 logging.exception('error')
                 continue
+
+
+if __name__ == '__main__':
+    argparser = argparse.ArgumentParser()
+    argparser.add_argument(
+        'time',
+        help='Number of seconds to wait between autocommits'
+    )
+    args = argparser.parse_args()
+
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s %(message)s'
+    )
+
+    run_git_command(
+        'commit',
+        '--allow-empty',
+        '-m',
+        'Starting autocommit with period %s seconds' % args.time
+    )
+    do_rebase_pull()
+    run_git_command('push', 'origin', 'master')
+
+    while True:
+        sync()
+        time.sleep(float(args.time))
