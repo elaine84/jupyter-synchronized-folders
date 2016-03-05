@@ -90,7 +90,7 @@ if __name__ == '__main__':
                 run_git_command(
                     'merge-base',
                     '--is-ancestor',
-                    local_head_sha,
+                    get_local_sha('master'),
                     remote_head_sha
                 )
                 needs_pull = False
