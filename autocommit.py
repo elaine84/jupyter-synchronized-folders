@@ -85,7 +85,7 @@ if __name__ == '__main__':
 
         # if the local and remote HEADs are same, do not do anything! Both
         # the things are in sync!
-        if remote_head_sha != local_head_sha:
+        if remote_head_sha != get_local_sha():
             try:
                 run_git_command(
                     'merge-base',
