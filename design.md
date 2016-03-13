@@ -4,10 +4,14 @@ Folder synchronization across multiple locations is a fundamental requirement fo
 
 ## Motivating use case ##
 
-Interest in data science is exploding.  As a result, many individuals across disciplines and with diverse computational backgrounds are discovering data science tools.  At schools like UC Berkeley (Cal), these individuals include students and instructors at all levels:  from incoming freshman to students across the college, masters, PhD, and MBA students, postdocs, lecturers, junior and senior faculty.  Instructors across the campus are developing data-centric classes, from freshman seminars to advanced special topics courses in areas such as history, literature, ecology, neuroscience, and health.  For example, here is a list of 11 data science seminars, aimed at freshmen, being taught this spring (2016) at Cal: https://data-8.appspot.com/sp16/modules/extra_tabs/render?index=3
+Interest in data science is exploding.  As a result, many individuals across disciplines and with diverse computational backgrounds are discovering data science tools.
+At schools like UC Berkeley, these individuals include students and instructors at all levels:  from incoming first-years to undergraduates with all levels of experience, masters, PhD, and MBA students, postdocs, lecturers, junior and senior faculty.
+Instructors across the campus are developing data-centric courses, from entry-level seminars to advanced topical courses in areas such as history, literature, ecology, neuroscience, and health.
+For example, here is a list of 11 data science seminars, aimed at entry-level students, being taught this spring (2016) at Berkeley: https://data-8.appspot.com/sp16/modules/extra_tabs/render?index=3
 Many of these instructors do not have traditional training in computer science or statistics, and are learning data science skills on the fly, as they develop and teach their courses.
 
-Jupyter notebooks are widely employed in classes at Cal because they provide a natural environment for introducing data science skills to students.  Critically, they enable a browser-based interface to computation in the cloud, meaning that students only need a browser to start programming and interacting with data.  
+Jupyter notebooks are widely employed in classes at Berkeley because they provide a natural environment for introducing data science skills to students.
+Critically, they  let students develop an explicit computational narrative with data and enable a browser-based interface to computation in the cloud, meaning that students only need a browser to start programming, interacting with data, and creating a visible record of their analytical steps.
 
 However, the tools currently available for instructors require considerably more experience with computational and programming tools. In order to include and support this multidisciplinary group of instructors who are developing a rich ensemble of classes, particularly from disciplines currently underrepresented in data science, the tools available must be designed to facilitate the work of instructors whose research and educational backgrounds do not include, for instance, tools for version control. We focus here on a particular problem that they encounter early in developing and teaching the courses: managing the notebooks, data, and other files they develop and distribute to students.
 
