@@ -59,7 +59,7 @@ def do_rebase_pull(remote='origin', branch='master'):
         'pull',
         '--rebase',
         '--strategy', 'recursive',
-    #    '--strategy-option', 'ours',
+        '--strategy-option', 'ours',
         remote, branch
     )
 
