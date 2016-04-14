@@ -2,7 +2,6 @@
 """
 Simple script that autocommits files being worked on to git.
 """
-import ipdb
 import time
 import argparse
 import logging
