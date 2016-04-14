@@ -31,19 +31,21 @@ def call_subprocess(cmd, stdin=None):
 
     error = Task(sub_process.stderr.read_until_close)
 
-    yield sub_process.stdout.read_until_close()
+    stdout = yield sub_process.stdout.read_until_close()
+    return stdout
 
 
 @coroutine
 def run_git_command(*command):
     logging.info(' '.join([str(c) for c in command]))
-    return call_subprocess([
+    blah = yield call_subprocess([
         '/usr/bin/git',
     ] + list(command))
+    return blah
 
 @coroutine
 def get_remote_branch_sha(remote, branch):
-    remote_head = run_git_command(
+    remote_head = yield run_git_command(
         'ls-remote',
         '--heads',
         remote, 'refs/heads/{head}'.format(head=branch)
