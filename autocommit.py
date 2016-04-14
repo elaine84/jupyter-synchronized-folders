@@ -70,7 +70,7 @@ def get_local_sha(branch):
         'show-ref',
         'refs/heads/{branch}'.format(branch=branch)
     )
-    raise Return(local_head.split()[0])
+    return local_head.split()[0]
 
 
 @coroutine
@@ -93,15 +93,15 @@ def sync():
 
     # Find the SHA of the remote master
     remote_head_sha = yield get_remote_branch_sha('origin', 'master')
-
+    local_head_sha = yield get_local_sha('master')
     # if the local and remote HEADs are same, do not do anything! Both
     # the things are in sync!
-    if remote_head_sha != get_local_sha('master'):
+    if remote_head_sha != local_head_sha:
         try:
             yield run_git_command(
                 'merge-base',
                 '--is-ancestor',
-                get_local_sha('master'),
+                local_head_sha,
                 remote_head_sha
             )
             needs_pull = False
