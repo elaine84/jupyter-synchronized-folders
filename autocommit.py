@@ -2,11 +2,10 @@
 """
 Simple script that autocommits files being worked on to git.
 """
-import time
 import argparse
 import logging
 import tornado
-from tornado.gen import Task, coroutine, Return
+from tornado.gen import coroutine
 import tornado.process
 
 
@@ -15,12 +14,10 @@ def call_subprocess(cmd, stdin=None):
     """
     Wrapper around subprocess call using Tornado's Subprocess class.
     """
-    stdin = tornado.process.Subprocess.STREAM
-
     sub_process = tornado.process.Subprocess(
         cmd,
         stdout=tornado.process.Subprocess.STREAM,
-        stderr=tornado.process.Subprocess.STREAM
+        stderr=tornado.process.Subprocess.STREAM,
     )
 
 #    if stdin:
@@ -29,19 +26,20 @@ def call_subprocess(cmd, stdin=None):
 #    if stdin:
 #        sub_process.stdin.close()
 
-    error = Task(sub_process.stderr.read_until_close)
+    error = yield sub_process.stderr.read_until_close()
 
     stdout = yield sub_process.stdout.read_until_close()
+
     return stdout
 
 
 @coroutine
 def run_git_command(*command):
     logging.info(' '.join([str(c) for c in command]))
-    blah = yield call_subprocess([
+    output = yield call_subprocess([
         '/usr/bin/git',
     ] + list(command))
-    return blah
+    return output
 
 @coroutine
 def get_remote_branch_sha(remote, branch):
