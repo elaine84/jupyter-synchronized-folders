@@ -48,7 +48,6 @@ def get_remote_branch_sha(remote, branch):
         '--heads',
         remote, 'refs/heads/{head}'.format(head=branch)
     )
-    ipdb.set_trace()
     raise Return(remote_head.split()[0])
 
 
