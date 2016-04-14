@@ -116,7 +116,7 @@ def sync():
                 logging.exception('error')
                 return
 
-        if remote_head_sha != get_local_sha('master'):
+        if remote_head_sha != local_head_sha:
             try:
                 yield run_git_command('push', 'origin', 'master')
             except Exception:
