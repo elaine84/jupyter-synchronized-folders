@@ -122,6 +122,7 @@ def sync():
             except Exception:
                 logging.exception('error')
                 return
+            logging.info("Pushed!")
 
 
 if __name__ == '__main__':
