@@ -63,3 +63,9 @@ target/
 
 # Swap files for editors
 *.swp
+
+# Virtualenv
+bin/
+lib/
+share/
+
